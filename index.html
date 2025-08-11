@@ -4,24 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Submit your song for live review by Richh Nick on his livestream. Follow the steps after your $25 payment to get featured.">
-    <meta name="keywords" content="song submission, music review, Richh Nick, livestream, hip-hop, artist submission">
-    <meta property="og:title" content="Æ Submission - Richh Nick Live Review">
-    <meta property="og:description" content="Your track is about to get the spotlight! Submit now for a live review.">
-    <meta property="og:image" content="https://via.placeholder.com/1200x630?text=AE+Submission+Banner">
-    <meta property="og:url" content="https://bdaniels013.github.io/musicsubmissionlandingpage/">
     <title>Æ Submission - Richh Nick Live Review</title>
-
-    <!-- Preload critical assets -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" as="script">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --gold: #FFD700;
             --black: #000000;
-            --dark-black: #111111;
-            --transition: 0.3s ease;
+            --dark-gray: #1a1a1a;
+            --transition: 0.3s ease-in-out;
         }
 
         * {
@@ -32,91 +23,97 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: var(--dark-black); /* Fallback for failed image */
+            background: linear-gradient(to bottom, var(--black), var(--dark-gray)); /* Subtle gradient for depth, no image dependency */
             color: var(--gold);
             line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        header {
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            padding: 100px 20px 60px;
+            background: rgba(0, 0, 0, 0.8);
             position: relative;
         }
 
-        .hero::before {
+        header::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255,215,0,0.05), transparent);
-            opacity: 0.3;
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent);
+            z-index: 0;
         }
 
-        .hero h1 {
+        header h1 {
             font-family: 'Playfair Display', serif;
             font-size: 4.5rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
             z-index: 1;
+            animation: fadeInDown 1s ease-out;
         }
 
-        .hero p {
-            font-size: 1.6rem;
+        header p {
+            font-size: 1.4rem;
             max-width: 800px;
-            margin-bottom: 30px;
+            margin: 0 auto 40px;
+            position: relative;
             z-index: 1;
+            animation: fadeInUp 1s ease-out 0.5s;
+            animation-fill-mode: both;
         }
 
-        .hero .cta-button {
-            background-color: var(--gold);
+        .cta-button {
+            background: var(--gold);
             color: var(--black);
-            padding: 15px 30px;
+            padding: 15px 40px;
             font-size: 1.2rem;
             text-transform: uppercase;
             border: none;
             cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
             transition: var(--transition);
-            box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+            position: relative;
             z-index: 1;
         }
 
-        .hero .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255,215,0,0.5);
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 215, 0, 0.5);
         }
 
-        .submission {
+        section {
             padding: 60px 20px;
             text-align: center;
-            background-color: var(--black);
         }
 
-        .submission h2 {
+        h2 {
             font-family: 'Playfair Display', serif;
             font-size: 2.8rem;
             margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
-        .submission .instructions {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1.2rem;
+        .submission {
+            background: var(--dark-gray);
         }
 
         .submission ul {
             list-style: none;
-            padding: 0;
-            margin: 20px 0;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
         }
 
         .submission li {
@@ -124,163 +121,146 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px;
         }
 
         .submission li i {
-            margin-right: 10px;
-            font-size: 1.4rem;
             color: var(--gold);
+            font-size: 1.4rem;
         }
 
         .submission a {
             color: var(--gold);
             text-decoration: none;
-            border-bottom: 1px solid var(--gold);
+            border-bottom: 1px dashed var(--gold);
+            transition: var(--transition);
         }
 
         .submission a:hover {
             border-bottom-color: transparent;
-            text-shadow: 0 0 10px var(--gold);
+            text-shadow: 0 0 8px var(--gold);
         }
 
         .why-submit {
-            padding: 60px 20px;
-            background-color: var(--dark-black);
-            text-align: center;
+            background: var(--black);
         }
 
-        .why-submit h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-        }
-
-        .why-submit .features {
+        .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .why-submit .feature {
-            background-color: var(--black);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        .feature {
+            background: var(--dark-gray);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
             transition: var(--transition);
         }
 
-        .why-submit .feature:hover {
+        .feature:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(255,215,0,0.2);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
         }
 
-        .why-submit .feature i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .feature i {
+            font-size: 3rem;
             color: var(--gold);
+            margin-bottom: 15px;
         }
 
-        .why-submit .feature h3 {
-            font-size: 1.4rem;
+        .feature h3 {
+            font-size: 1.5rem;
             margin-bottom: 10px;
         }
 
-        .contact {
-            padding: 60px 20px;
-            text-align: center;
-            background-color: var(--black);
-            border-top: 1px solid var(--gold);
+        .feature p {
+            font-size: 1.1rem;
         }
 
-        .contact h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
-            margin-bottom: 20px;
+        .contact {
+            background: var(--dark-gray);
+            border-top: 2px solid var(--gold);
         }
 
         .contact p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .contact form {
-            max-width: 500px;
+            font-size: 1.3rem;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .contact input, .contact textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            background-color: var(--dark-black);
-            border: 1px solid var(--gold);
+        .contact a {
             color: var(--gold);
-            font-size: 1rem;
-        }
-
-        .contact button {
-            background-color: var(--gold);
-            color: var(--black);
-            padding: 12px 25px;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--gold);
             transition: var(--transition);
         }
 
-        .contact button:hover {
-            transform: scale(1.05);
+        .contact a:hover {
+            border-bottom-color: transparent;
+            text-shadow: 0 0 8px var(--gold);
         }
 
         footer {
-            padding: 20px;
             text-align: center;
-            background-color: var(--dark-black);
+            padding: 20px;
+            background: var(--black);
             font-size: 0.9rem;
+            border-top: 1px solid var(--gold);
         }
 
-        a:focus, button:focus {
-            outline: 2px solid var(--gold);
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
         @media (max-width: 1024px) {
-            .hero h1 { font-size: 3.5rem; }
-            .hero p { font-size: 1.4rem; }
+            header h1 { font-size: 3.5rem; }
+            header p { font-size: 1.2rem; }
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
-            .submission h2, .why-submit h2, .contact h2 { font-size: 2.2rem; }
+            header { padding: 80px 15px 40px; }
+            header h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; }
+            .feature { padding: 20px; }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .hero .cta-button { font-size: 1rem; padding: 10px 20px; }
+            header h1 { font-size: 2.2rem; }
+            header p { font-size: 1rem; }
+            .cta-button { padding: 12px 30px; font-size: 1rem; }
         }
     </style>
 </head>
 <body>
-    <section class="hero">
+
+    <header>
         <h1>Æ Submission</h1>
         <p>You've invested $25 in your future—now lock in your spot for a live review by Richh Nick on his electrifying livestream. This is where stars are born. Submit your track and let the world hear your vibe.</p>
         <button class="cta-button" onclick="document.querySelector('.submission').scrollIntoView({behavior: 'smooth'})">Submit Now</button>
-    </section>
+    </header>
 
     <section class="submission">
         <h2>Submission Guidelines</h2>
-        <div class="instructions">
-            <p>Please send your song and information to <a href="mailto:richhtalk3@gmail.com" aria-label="Email to richhtalk3@gmail.com">richhtalk3@gmail.com</a></p>
-            <ul>
-                <li><i class="fas fa-eye"></i> Please use the subject line “Æ Submission 8/10 Pinky”</li>
-                <li><i class="fas fa-info-circle"></i> Include the following information in your email:</li>
-                <li><i class="fas fa-user"></i> Name:</li>
-                <li><i class="fas fa-music"></i> Song Name:</li>
-                <li><i class="fas fa-file-audio"></i> Send Mp3</li>
-            </ul>
-        </div>
+        <ul>
+            <li><i class="fas fa-envelope"></i> Please send your song and information to <a href="mailto:richhtalk3@gmail.com">richhtalk3@gmail.com</a></li>
+            <li><i class="fas fa-eye"></i> Use the subject line “Æ Submission 8/10 Pinky”</li>
+            <li><i class="fas fa-info-circle"></i> Include in your email:</li>
+            <li><i class="fas fa-user"></i> Name:</li>
+            <li><i class="fas fa-music"></i> Song Name:</li>
+            <li><i class="fas fa-file-audio"></i> Send MP3</li>
+        </ul>
     </section>
 
     <section class="why-submit">
@@ -311,25 +291,12 @@
 
     <section class="contact">
         <h2>Questions or Verification?</h2>
-        <p>If you have any questions, concerns, or want to verify your submission, feel free to contact Ms. Pinky @ <a href="tel:470-416-9447" aria-label="Call Ms. Pinky at 470-416-9447">470-416-9447</a></p>
-        <form action="https://formspree.io/f/yourformid" method="POST">
-            <input type="text" name="name" placeholder="Your Name" required aria-label="Your Name">
-            <input type="email" name="email" placeholder="Your Email" required aria-label="Your Email">
-            <textarea name="message" placeholder="Your Message" rows="5" required aria-label="Your Message"></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+        <p>If you have any questions, concerns, or want to verify your submission, feel free to contact Ms. Pinky @ <a href="tel:470-416-9447">470-416-9447</a></p>
     </section>
 
     <footer>
-        <p>&copy; 2025 Richh Nick Productions. All rights reserved.</p>
+        <p>&copy; 2025 Richh Nick Productions. All rights reserved. | Executive Hip-Hop Excellence</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script>
-        // GSAP animations
-        gsap.from(".hero h1", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
-        gsap.from(".hero p", { duration: 1, y: 50, opacity: 0, ease: "power2.out", delay: 0.3 });
-        gsap.from(".hero .cta-button", { duration: 1, scale: 0.8, opacity: 0, ease: "back.out", delay: 0.6 });
-    </script>
 </body>
 </html>
