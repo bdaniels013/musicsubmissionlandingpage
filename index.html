@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Submit your song for live review by Richh Nick on his livestream. Follow the steps after your $25 payment to get featured.">
     <title>Æ Submission - Richh Nick Live Review</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -23,18 +23,19 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to bottom, var(--black), var(--dark-gray)); /* Subtle gradient for depth, no image dependency */
+            background: linear-gradient(to bottom, var(--black), var(--dark-gray));
             color: var(--gold);
             line-height: 1.6;
             min-height: 100vh;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
         header {
             text-align: center;
-            padding: 100px 20px 60px;
-            background: rgba(0, 0, 0, 0.8);
+            padding: 80px 15px 50px;
+            background: rgba(0, 0, 0, 0.85);
             position: relative;
         }
 
@@ -45,37 +46,37 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.1), transparent);
+            background: radial-gradient(circle at center, rgba(255, 215, 0, 0.15), transparent);
             z-index: 0;
         }
 
         header h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 4rem;
             text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
             position: relative;
             z-index: 1;
-            animation: fadeInDown 1s ease-out;
+            animation: fadeInDown 0.8s ease-out;
         }
 
         header p {
-            font-size: 1.4rem;
-            max-width: 800px;
-            margin: 0 auto 40px;
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out 0.5s;
+            animation: fadeInUp 0.8s ease-out 0.3s;
             animation-fill-mode: both;
         }
 
         .cta-button {
             background: var(--gold);
             color: var(--black);
-            padding: 15px 40px;
-            font-size: 1.2rem;
+            padding: 12px 35px;
+            font-size: 1.1rem;
             text-transform: uppercase;
             border: none;
             cursor: pointer;
@@ -84,101 +85,153 @@
             transition: var(--transition);
             position: relative;
             z-index: 1;
+            touch-action: manipulation;
         }
 
-        .cta-button:hover {
+        .cta-button:hover, .cta-button:active {
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(255, 215, 0, 0.5);
         }
 
         section {
-            padding: 60px 20px;
+            padding: 50px 15px;
             text-align: center;
         }
 
         h2 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             margin-bottom: 30px;
             text-transform: uppercase;
             letter-spacing: 2px;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 2px;
+            background: var(--gold);
+            margin: 10px auto;
+            border-radius: 1px;
         }
 
         .submission {
             background: var(--dark-gray);
         }
 
-        .submission ul {
-            list-style: none;
-            max-width: 600px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-        }
-
-        .submission li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .submission li i {
-            color: var(--gold);
-            font-size: 1.4rem;
-        }
-
-        .submission a {
-            color: var(--gold);
-            text-decoration: none;
-            border-bottom: 1px dashed var(--gold);
-            transition: var(--transition);
-        }
-
-        .submission a:hover {
-            border-bottom-color: transparent;
-            text-shadow: 0 0 8px var(--gold);
-        }
-
-        .why-submit {
-            background: var(--black);
-        }
-
-        .features {
+        .guidelines {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .feature {
-            background: var(--dark-gray);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        .guideline {
+            background: var(--black);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.7);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+        }
+
+        .guideline:hover, .guideline:active {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+            border-image: linear-gradient(45deg, var(--gold), transparent) 1;
+        }
+
+        .guideline::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);
+            opacity: 0;
+            transition: var(--transition);
+            transform: rotate(45deg);
+        }
+
+        .guideline:hover::before, .guideline:active::before {
+            opacity: 1;
+        }
+
+        .guideline i {
+            font-size: 4rem;
+            color: var(--gold);
+            margin-bottom: 15px;
             transition: var(--transition);
         }
 
-        .feature:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.2);
+        .guideline:hover i, .guideline:active i {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 8px var(--gold));
         }
 
-        .feature i {
-            font-size: 3rem;
+        .guideline p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .guideline strong {
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+        }
+
+        .guideline a {
             color: var(--gold);
-            margin-bottom: 15px;
+            text-decoration: none;
+            border-bottom: 2px solid var(--gold);
+            transition: var(--transition);
+            font-weight: 600;
         }
 
-        .feature h3 {
-            font-size: 1.5rem;
+        .guideline a:hover, .guideline a:active {
+            border-bottom-color: transparent;
+            text-shadow: 0 0 10px var(--gold);
+        }
+
+        .guideline-details {
+            background: linear-gradient(to bottom, var(--black), #222);
+            padding: 40px 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .guideline-details:hover, .guideline-details:active {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 215, 0, 0.4);
+            border-color: var(--gold);
+        }
+
+        .guideline-details ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .guideline-details li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
 
-        .feature p {
-            font-size: 1.1rem;
+        .guideline-details li i {
+            font-size: 2rem;
         }
 
         .contact {
@@ -187,7 +240,7 @@
         }
 
         .contact p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -195,18 +248,20 @@
         .contact a {
             color: var(--gold);
             text-decoration: none;
-            border-bottom: 1px dashed var(--gold);
+            border-bottom: 2px solid var(--gold);
             transition: var(--transition);
+            font-weight: 600;
+            padding: 2px 4px;
         }
 
-        .contact a:hover {
+        .contact a:hover, .contact a:active {
             border-bottom-color: transparent;
-            text-shadow: 0 0 8px var(--gold);
+            text-shadow: 0 0 10px var(--gold);
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px;
             background: var(--black);
             font-size: 0.9rem;
             border-top: 1px solid var(--gold);
@@ -214,32 +269,48 @@
 
         /* Animations */
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
+            from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive */
+        /* Mobile Optimizations */
         @media (max-width: 1024px) {
-            header h1 { font-size: 3.5rem; }
-            header p { font-size: 1.2rem; }
+            header h1 { font-size: 3.2rem; }
+            header p { font-size: 1.1rem; }
+            .guidelines { gap: 20px; }
+            .guideline, .guideline-details { padding: 25px 15px; }
         }
 
         @media (max-width: 768px) {
-            header { padding: 80px 15px 40px; }
-            header h1 { font-size: 2.8rem; }
-            h2 { font-size: 2.2rem; }
-            .feature { padding: 20px; }
+            header { padding: 60px 10px 40px; }
+            header h1 { font-size: 2.5rem; }
+            header p { font-size: 1rem; max-width: 90%; }
+            .cta-button { padding: 10px 30px; font-size: 1rem; }
+            h2 { font-size: 2rem; }
+            .guidelines { grid-template-columns: 1fr; gap: 15px; }
+            .guideline i, .guideline-details i { font-size: 3rem; }
+            .guideline p, .guideline-details li { font-size: 1rem; }
+            .guideline-details li i { font-size: 1.8rem; }
         }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 2.2rem; }
-            header p { font-size: 1rem; }
-            .cta-button { padding: 12px 30px; font-size: 1rem; }
+            header { padding: 50px 10px 30px; }
+            header h1 { font-size: 2rem; }
+            header p { font-size: 0.9rem; }
+            .cta-button { padding: 8px 25px; font-size: 0.9rem; }
+            h2 { font-size: 1.8rem; }
+            h2::after { width: 60px; }
+            section { padding: 40px 10px; }
+            .guideline, .guideline-details { padding: 20px 10px; }
+            .guideline i { font-size: 2.5rem; }
+            .guideline-details li i { font-size: 1.5rem; }
+            .contact p { font-size: 1rem; }
+            footer { font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -253,45 +324,30 @@
 
     <section class="submission">
         <h2>Submission Guidelines</h2>
-        <ul>
-            <li><i class="fas fa-envelope"></i> Please send your song and information to <a href="mailto:richhtalk3@gmail.com">richhtalk3@gmail.com</a></li>
-            <li><i class="fas fa-eye"></i> Use the subject line “Æ Submission 8/10 Pinky”</li>
-            <li><i class="fas fa-info-circle"></i> Include in your email:</li>
-            <li><i class="fas fa-user"></i> Name:</li>
-            <li><i class="fas fa-music"></i> Song Name:</li>
-            <li><i class="fas fa-file-audio"></i> Send MP3</li>
-        </ul>
-    </section>
-
-    <section class="why-submit">
-        <h2>Why Submit to Richh Nick?</h2>
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-star"></i>
-                <h3>Live Exposure</h3>
-                <p>Get real-time feedback and buzz from thousands of viewers on the livestream.</p>
+        <div class="guidelines">
+            <div class="guideline">
+                <i class="fas fa-envelope"></i>
+                <p>Email your song to <a href="mailto:richhtalk3@gmail.com">richhtalk3@gmail.com</a></p>
             </div>
-            <div class="feature">
-                <i class="fas fa-trophy"></i>
-                <h3>Industry Cred</h3>
-                <p>Richh Nick's executive insight can elevate your track to the next level.</p>
+            <div class="guideline">
+                <i class="fas fa-eye"></i>
+                <p>Use subject line: <strong>“Æ Submission 8/11 Pinky”</strong></p>
             </div>
-            <div class="feature">
-                <i class="fas fa-users"></i>
-                <h3>Community Vibe</h3>
-                <p>Join a network of hip-hop artists pushing boundaries and building empires.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-rocket"></i>
-                <h3>Career Boost</h3>
-                <p>Past submissions have led to collabs, deals, and viral moments.</p>
+            <div class="guideline guideline-details">
+                <i class="fas fa-info-circle"></i>
+                <p>Include these details in your email:</p>
+                <ul>
+                    <li><i class="fas fa-user"></i> Your Name</li>
+                    <li><i class="fas fa-music"></i> Song Name</li>
+                    <li><i class="fas fa-file-audio"></i> Attach MP3 File</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <section class="contact">
         <h2>Questions or Verification?</h2>
-        <p>If you have any questions, concerns, or want to verify your submission, feel free to contact Ms. Pinky @ <a href="tel:470-416-9447">470-416-9447</a></p>
+        <p>If you have any questions, concerns, or want to verify your submission, contact Ms. Pinky @ <a href="tel:470-416-9447">470-416-9447</a></p>
     </section>
 
     <footer>
